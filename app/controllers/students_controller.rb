@@ -3,9 +3,17 @@ class StudentsController < ApplicationController
   
   def index
     @students = Student.all
+    render "index"
   end
 
   def show
+    render "show"
+  end
+
+  def activate
+    @stud = Student.find(params[:id])
+    @stud.active_status_change
+    redirect_to :action => "show", :id => @stud.id
   end
 
   private

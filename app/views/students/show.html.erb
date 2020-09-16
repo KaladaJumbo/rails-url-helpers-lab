@@ -1,1 +1,9 @@
 <h1><%= @student.to_s %></h1>
+
+<%if !@student.active %>
+    <div>This student is currently inactive.</div>
+<%else%>
+    <div>This student is currently active.</div>
+<%end%>
+
+<div><%=link_to "change active status", activate_student_path(@student) %></div>
